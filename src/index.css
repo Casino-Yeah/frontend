@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fondo: #0b1220;
+  --color-panel: #121b2e;
+  --color-borde: #22304d;
+  --color-texto: #e5e9f2;
+  --color-tenue: #93a0b8;
+  --color-oro: #f5b83d;
+  --color-oro-oscuro: #c98d14;
+  --color-pano: #0f5c3a;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html, body, #root { min-height: 100%; }
+body { background: var(--color-fondo); color: var(--color-texto); -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .tarjeta { @apply rounded-xl border border-borde bg-panel p-4 sm:p-5; }
+  .btn, .btn-oro, .btn-sec, .btn-peligro { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-oro { @apply bg-oro text-slate-900 hover:bg-oro-oscuro; }
+  .btn-sec { @apply border border-borde bg-transparent text-texto hover:bg-white/5; }
+  .btn-peligro { @apply bg-red-600 text-white hover:bg-red-700; }
+  .campo { @apply w-full rounded-lg border border-borde bg-fondo px-3 py-2 text-sm text-texto placeholder:text-tenue/60 focus:border-oro focus:outline-none; }
+  .etiqueta { @apply mb-1 block text-xs font-medium uppercase tracking-wide text-tenue; }
+  .tabla { @apply w-full text-left text-sm; }
+  .tabla th { @apply whitespace-nowrap border-b border-borde px-3 py-2 text-xs font-semibold uppercase tracking-wide text-tenue; }
+  .tabla td { @apply border-b border-borde/60 px-3 py-2 align-middle; }
+  .pano { background: radial-gradient(ellipse at center, #17784d 0%, #0f5c3a 60%, #0a4029 100%); }
+}
